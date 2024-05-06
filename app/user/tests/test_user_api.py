@@ -65,7 +65,7 @@ class PublicUserApiTests(TestCase):
         ).exists()
         self.assertFalse(user_exists)
     
-    def teset_create_token_for_user(self):
+    def test_create_token_for_user(self):
         """Test generates token for valid credentials."""
         user_details = {
             'name': 'Test Name',
@@ -80,7 +80,7 @@ class PublicUserApiTests(TestCase):
         }
         res = self.client.post(TOKEN_URL, payload)
         
-        self.assertIN('token', res.data)
+        self.assertIn('token', res.data)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         
     def test_create_token_bad_credentials(self):
