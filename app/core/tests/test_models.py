@@ -10,7 +10,7 @@ def create_user(email='user@example.com', password='testpass123'):
     """Create and return a new user."""
     return get_user_model().objects.create_user(email, password)
 
-class ModelTEsts(TestCase):
+class ModelTests(TestCase):
     """Test models."""
     
     def test_create_user_with_email_successful(self):
@@ -84,7 +84,7 @@ class ModelTEsts(TestCase):
 
         self.assertEqual(str(ingredient), ingredient.name)
         
-    @patch('uuid.uuid4')
+    @patch('core.models.uuid.uuid4')
     def test_recipe_file_name_uuid(self, mock_uuid):
         """Test generating image path."""
         uuid = 'test-uuid'
